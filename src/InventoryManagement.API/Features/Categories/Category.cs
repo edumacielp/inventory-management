@@ -12,7 +12,7 @@ public sealed class Category
 
     private Category() { } // EF Core
 
-    public static Category Create(string name, string shortcode, Category? parent = null)
+    public static Category Create(string name, string shortcode, string? parentId = null)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new DomainException("Category name is required.");
@@ -25,8 +25,7 @@ public sealed class Category
             Id = Guid.CreateVersion7().ToString(),
             Name = name,
             Shortcode = shortcode.ToUpper(),
-            ParentCategoryId = parent?.Id,
-            ParentCategory = parent
+            ParentCategoryId = parentId
         };
     }
 }
