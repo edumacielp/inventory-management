@@ -29,10 +29,10 @@ public sealed class Supplier
         return new Supplier
         {
             Id = Guid.CreateVersion7().ToString(),
-            Name = name,
-            Email = email,
-            Currency = currency,
-            Country = country
+            Name = name.Trim(),
+            Email = email.Trim().ToLowerInvariant(),
+            Currency = currency.Trim().ToUpperInvariant(),
+            Country = country.Trim()
         };
     }
 }
