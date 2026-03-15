@@ -11,11 +11,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
         CancellationToken ct)
     {
         // Log the full exception for internal diagnostics
-        logger.LogError(
-            exception, 
-            "An unhandled exception occurred: {Message}", 
-            exception.Message
-        );
+        logger.LogError(exception, "An unhandled exception occurred: {Message}", exception.Message);
 
         var problem = new ProblemDetails
         {
@@ -28,6 +24,6 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
         context.Response.StatusCode = problem.Status.Value;
         await context.Response.WriteAsJsonAsync(problem, ct);
 
-        return true; // Exception successfully handled
+        return true; 
     }
 }

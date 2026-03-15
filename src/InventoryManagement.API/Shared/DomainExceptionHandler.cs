@@ -17,7 +17,7 @@ public class DomainExceptionHandler(ILogger<DomainExceptionHandler> logger) : IE
 
         var problem = new ProblemDetails
         {
-            Status = StatusCodes.Status422UnprocessableEntity, 
+            Status = StatusCodes.Status422UnprocessableEntity,
             Title = "Business Rule Violation",
             Detail = domainException.Message,
             Instance = $"{context.Request.Method} {context.Request.Path}"
