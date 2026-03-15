@@ -1,8 +1,4 @@
-﻿using InventoryManagement.API.Infrastructure;
-using InventoryManagement.API.Shared;
-using Microsoft.EntityFrameworkCore;
-
-namespace InventoryManagement.API.Features.Categories;
+﻿namespace InventoryManagement.API.Features.Categories;
 
 // USE CASE
 public class DeleteCategoryUseCase(AppDbContext db)

@@ -1,6 +1,4 @@
-﻿using InventoryManagement.API.Shared;
-
-namespace InventoryManagement.API.Features.Suppliers;
+﻿namespace InventoryManagement.API.Features.Suppliers;
 
 public sealed class Supplier
 {

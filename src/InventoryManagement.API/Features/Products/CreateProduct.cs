@@ -1,4 +1,6 @@
-﻿namespace InventoryManagement.API.Features.Products;
+﻿using InventoryManagement.API.Infrastructure.ExternalServices;
+
+namespace InventoryManagement.API.Features.Products;
 
 // CONTRACT
 public record CreateProductRequest(
@@ -39,7 +41,9 @@ public class CreateProductValidator : AbstractValidator<CreateProductRequest>
 
 // USE CASE
 public class CreateProductUseCase(
-    AppDbContext db, IWmsService wms, IAuditService audit)
+    AppDbContext db, 
+    IWmsService wms, 
+    IAuditService audit)
 {
     // Auth is out of scope — fixed mock
     private const string MockUserId = "system";
@@ -71,8 +75,8 @@ public class CreateProductUseCase(
 
         // 3. Integrations and Log
         await Task.WhenAll(
-            wms.CreateProductAsync(product.Id, product.Description, category.Shortcode, product.SupplierId),
-            audit.LogAsync(MockUserId, MockUserEmail, AuditEvents.ProductCreated)
+            wms.CreateProductAsync(product.Id, product.Description, category.Shortcode, product.SupplierId, ct),
+            audit.LogAsync(MockUserId, MockUserEmail, AuditEvents.ProductCreated, ct)
         );
 
         return new CreateProductResponse(

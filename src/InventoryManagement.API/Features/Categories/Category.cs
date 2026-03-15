@@ -1,6 +1,4 @@
-﻿using InventoryManagement.API.Shared;
-
-namespace InventoryManagement.API.Features.Categories;
+﻿namespace InventoryManagement.API.Features.Categories;
 
 public sealed class Category
 {
@@ -23,7 +21,7 @@ public sealed class Category
         return new Category
         {
             Id = Guid.CreateVersion7().ToString(),
-            Name = name,
+            Name = name.Trim(),
             Shortcode = shortcode.ToUpper(),
             ParentCategoryId = parentId
         };

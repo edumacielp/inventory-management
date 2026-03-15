@@ -1,7 +1,4 @@
-﻿using InventoryManagement.API.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-
-namespace InventoryManagement.API.Features.Categories;
+﻿namespace InventoryManagement.API.Features.Categories;
 
 // CONTRACT
 public record ListCategoriesResponse(

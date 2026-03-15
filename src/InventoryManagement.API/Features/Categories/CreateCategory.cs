@@ -1,9 +1,4 @@
-﻿using FluentValidation;
-using InventoryManagement.API.Infrastructure;
-using InventoryManagement.API.Shared;
-using Microsoft.EntityFrameworkCore;
-
-namespace InventoryManagement.API.Features.Categories;
+﻿namespace InventoryManagement.API.Features.Categories;
 
 // CONTRACT
 public record CreateCategoryRequest(string Name, string Shortcode, string? ParentCategoryId);

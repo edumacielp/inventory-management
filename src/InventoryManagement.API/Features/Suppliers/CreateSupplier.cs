@@ -1,9 +1,4 @@
-﻿using FluentValidation;
-using InventoryManagement.API.Infrastructure;
-using InventoryManagement.API.Shared;
-using Microsoft.EntityFrameworkCore;
-
-namespace InventoryManagement.API.Features.Suppliers;
+﻿namespace InventoryManagement.API.Features.Suppliers;
 
 // CONTRACT
 public record CreateSupplierRequest(string Name, string Email, string Currency, string Country);
@@ -40,7 +35,7 @@ public class CreateSupplierUseCase(AppDbContext db)
 
         return new CreateSupplierResponse(
             supplier.Id, supplier.Name, supplier.Email, supplier.Currency, supplier.Country
-       );
+        );
     }
 }
 

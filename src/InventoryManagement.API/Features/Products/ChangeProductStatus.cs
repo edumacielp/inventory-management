@@ -1,4 +1,6 @@
-﻿namespace InventoryManagement.API.Features.Products;
+﻿using InventoryManagement.API.Infrastructure.ExternalServices;
+
+namespace InventoryManagement.API.Features.Products;
 
 
 // CONTRACT

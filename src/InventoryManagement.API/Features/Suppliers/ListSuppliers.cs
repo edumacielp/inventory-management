@@ -1,7 +1,4 @@
-﻿using InventoryManagement.API.Infrastructure;
-using Microsoft.EntityFrameworkCore;
-
-namespace InventoryManagement.API.Features.Suppliers;
+﻿namespace InventoryManagement.API.Features.Suppliers;
 
 // CONTRACT
 public record ListSuppliersResponse(string Id, string Name, string Email, string Currency, string Country);
