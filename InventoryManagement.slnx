@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path=".gitignore" />
+    <File Path="docker-compose.yml" />
+    <File Path="README.MD" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/InventoryManagement.API/InventoryManagement.API.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
