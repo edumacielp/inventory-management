@@ -11,7 +11,8 @@ public class CreateSupplierValidator : AbstractValidator<CreateSupplierRequest>
     {
         RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
         RuleFor(x => x.Email).NotEmpty().EmailAddress().MaximumLength(150);
-        RuleFor(x => x.Currency).NotEmpty().Length(10);
+        RuleFor(x => x.Currency).NotEmpty().Length(3)
+            .WithMessage("Currency must be a 3-letter ISO code. Only USD is currently supported.");
         RuleFor(x => x.Country).NotEmpty().MaximumLength(100);
     }
 }
@@ -22,8 +23,9 @@ public class CreateSupplierUseCase(AppDbContext db)
     public async Task<CreateSupplierResponse> ExecuteAsync(
         CreateSupplierRequest request, CancellationToken ct)
     {
+        var email = request.Email.Trim().ToLowerInvariant();
         var emailExists = await db.Suppliers
-            .AnyAsync(s => s.Email.Equals(request.Email, StringComparison.InvariantCultureIgnoreCase), ct);
+            .AnyAsync(c => c.Email == email, ct);
 
         if (emailExists)
             throw new DomainException($"A supplier with email '{request.Email}' already exists.");

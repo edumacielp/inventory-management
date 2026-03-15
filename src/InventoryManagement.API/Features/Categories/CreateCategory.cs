@@ -21,8 +21,9 @@ public class CreateCategoryUseCase(AppDbContext db)
         CreateCategoryRequest request, CancellationToken ct)
     {
         // Validates if the shortcode already exists — uniqueness rule.
+        var shortcode = request.Shortcode.Trim().ToUpperInvariant();
         var shortcodeExists = await db.Categories
-            .AnyAsync(c => c.Shortcode.Equals(request.Shortcode, StringComparison.InvariantCultureIgnoreCase), ct);
+            .AnyAsync(c => c.Shortcode == shortcode, ct);
 
         if (shortcodeExists)
             throw new DomainException($"Shortcode '{request.Shortcode}' is already in use.");
