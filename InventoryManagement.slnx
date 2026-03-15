@@ -7,5 +7,7 @@
   <Folder Name="/src/">
     <Project Path="src/InventoryManagement.API/InventoryManagement.API.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="tests/InventoryManagement.Tests/InventoryManagement.Tests.csproj" Id="20e1c787-9949-4abf-80b2-5a3e3d0ead7d" />
+  </Folder>
 </Solution>
